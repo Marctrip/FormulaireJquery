@@ -3,10 +3,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <style>
       body {
         margin: 0;
       }
+      .wtext {
+          white-space: nowrap;
+          display: inline-block;
+          }
       #gauche {
         float: left;
         width: 70%;
@@ -26,13 +31,16 @@
         box-shadow: 5px 5px 5px grey;
       }    
     </style>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
+    <script src="jQuery.wideText.js"></script>
   </head>
   <body>
     <div id="gauche">
     </div>
     <div id="droite">
+      <div id="texteD">
       Utilisez ces boutons pour créer votre formulaire<br><br>
+      </div>
       <button id="btn1" class="btnprincipal">Label</button>
       <button id="btn2" class="btnprincipal">Zone de texte</button>
       <button id="btn3" class="btnprincipal">Bouton</button>
@@ -40,6 +48,7 @@
     </div>
     <script>
       $(function(){
+        $('#texteD').wideText();
         $('#btn1').click(function(){
           $('hr').after('<div id="conteneur">Texte du label <input type="text" id="tex"><button id="btnok">OK</button><button id="btnannuler">Annuler</button></div><div id="aide"></div>');
           $('.btnprincipal').attr('disabled','disabled');
