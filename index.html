@@ -1,39 +1,17 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-      }
-      .wtext {
-          white-space: nowrap;
-          display: inline-block;
-          }
-      #gauche {
-        float: left;
-        width: 70%;
-        height: 1000px;
-        background-color: #EFECCA;
-      }
-      #droite {
-        background-color: #CEFFF8;
-        height: 1000px;
-        padding : 10px;
-        padding-left: 71%;
-      }
-      span, button, input {
-        margin: 10px;
-      }
-      button:hover:enabled {
-        box-shadow: 5px 5px 5px grey;
-      }    
-    </style>
+
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/jQuery.wideText.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     
-    <script src="jQuery.wideText.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/squeletteForm.js"></script>    
+    <script src="js/jQuery.wideText.js"></script>
+
   </head>
+
   <body>
     <div id="gauche">
     </div>
@@ -46,89 +24,5 @@
       <button id="btn3" class="btnprincipal">Bouton</button>
       <hr>
     </div>
-    <script>
-      $(function(){
-        $('#texteD').wideText();
-        $('#btn1').click(function(){
-          $('hr').after('<div id="conteneur">Texte du label <input type="text" id="tex"><button id="btnok">OK</button><button id="btnannuler">Annuler</button></div><div id="aide"></div>');
-          $('.btnprincipal').attr('disabled','disabled');
-          $('#aide').load('aide.html #aideValue'); // Le message apparaît dans une div aide
-          $('#aide').hide().fadeIn(2000);
-          //
-          $('#conteneur').hide().fadeIn(2000);
-          $('#tex').focus();
-          $('#btnok').click(function(){
-            var lid =  '<span>' + $('#tex').val() + '</span>';
-            $('#gauche').append(lid);
-            $('#conteneur').fadeOut(2000,function(){
-              $('#conteneur').remove();
-              $('.btnprincipal').removeAttr('disabled');
-
-            });
-          });
-          $('#btnok,#btnannuler').click(function () { // En appuyant "ok" ou "annuler" le message disparaît
-            $('#aide').fadeOut(2000);
-          });
-          $('#btnannuler').click(function(){
-            $('#conteneur').fadeOut(2000,function(){
-              $('#conteneur').remove();
-              $('.btnprincipal').removeAttr('disabled');
-            });
-          });  
-        });
-        $('#btn2').click(function(){
-          $('hr').after('<div id="conteneur">id de la zone de texte <input type="text" id="tex"><button id="btnok">OK</button><button id="btnannuler">Annuler</button></div><div id="aide"></div>');
-          $('.btnprincipal').attr('disabled','disabled');
-          $('#aide').load('aide.html #aideTexte');
-          $('#aide').hide().fadeIn(2000); // Le message apparaît dans une div aide
-          
-          $('#conteneur').hide().fadeIn(2000);
-          $('#tex').focus();
-          $('#btnok').click(function(){
-            var lid =  '<input type="text" id="' + $('#tex').val() + '"><br>';
-            $('#gauche').append(lid);
-            $('#conteneur').fadeOut(2000,function(){
-              $('#conteneur').remove();
-              $('.btnprincipal').removeAttr('disabled');
-            });
-          });
-          $('#btnok,#btnannuler').click(function () { // En appuyant "ok" ou "annuler" le message disparaît
-            $('#aide').fadeOut(2000);
-          });
-          $('#btnannuler').click(function(){
-            $('#conteneur').fadeOut(2000,function(){
-              $('#conteneur').remove();
-              $('.btnprincipal').removeAttr('disabled');
-            });
-          });  
-        });
-        $('#btn3').click(function(){
-          $('hr').after('<div id="conteneur">Texte du bouton <input type="text" id="tex"><button id="btnok">OK</button><button id="btnannuler">Annuler</button></div><div id="aide"></div>');
-          $('.btnprincipal').attr('disabled','disabled');
-          $('#aide').load('aide.html #aideBouton')
-          $('#aide').hide().fadeIn(2000); // Le message apparaît dans une div aide
-          
-          $('#conteneur').hide().fadeIn(2000);
-          $('#tex').focus();
-          $('#btnok').click(function(){
-            var lid =  '<button>' + $('#tex').val() + '</button><br>';
-            $('#gauche').append(lid);
-            $('#conteneur').fadeOut(2000,function(){
-              $('#conteneur').remove();
-              $('.btnprincipal').removeAttr('disabled');
-            });
-          });
-          $('#btnok,#btnannuler').click(function () { // En appuyant "ok" ou "annuler" le message disparaît
-            $('#aide').fadeOut(2000);
-          });
-          $('#btnannuler').click(function(){
-            $('#conteneur').fadeOut(2000,function(){
-              $('#conteneur').remove();
-              $('.btnprincipal').removeAttr('disabled');
-            });
-          });  
-        });
-      });
-    </script>
   </body>
 </html>
