@@ -1,0 +1,25 @@
+/* L'info bulle */
+#aide { 
+	background-image:-webkit-linear-gradient(top,#b40000 0%,#690000 100%);
+	color: white;
+	border-radius: 10px;
+	padding: 6px 10px;
+	position: relative;
+	top: 15px;
+	text-shadow: 1px 1px 5px #000,-1px -1px 5px #000;
+	box-shadow: 1px 0 10px #690000;
+}
+
+/* Le petit triangle de l'info bulle */
+#aide:before {
+	
+	content: "\25B8";
+	color: #b40000;
+	font-size: 18px;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	position: absolute;
+	top: -14px;
+	-webkit-transform:rotate(29deg);
+}
